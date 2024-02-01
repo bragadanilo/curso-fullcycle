@@ -1,2 +1,3 @@
 # curso-fullcycle
-Entregas do curso Fullcycle
+
+Repositório utilizado para as entregas do curso Fullcycle
