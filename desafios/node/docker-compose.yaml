@@ -28,12 +28,13 @@ services:
 
   db:
     image: mysql:5.7
-    command: --innodb-use-native-aio=0
+    command: --innodb-use-native-aio=0 --explicit_defaults_for_timestamp
     container_name: db
     restart: always
     tty: true
     volumes:
-      - /private/var/www/html/dbraga/fullcycle/docker/mysql:/var/lib/mysqls
+      - ./mysql:/var/lib/mysqls
+      - ./mysql/dump:/docker-entrypoint-initdb.d 
     environment:
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root
