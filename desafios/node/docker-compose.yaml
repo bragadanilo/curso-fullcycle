@@ -19,10 +19,10 @@ services:
       - node-network
     tty: true
     container_name: app
+    volumes:
+     - /home/danilo/workspace/curso-fullcycle/desafios/node/nodejs:/app
     entrypoint: "dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh"
-    command: "node index.js"
-    # ports:
-    #   - "3000:3000" # only exposed through nginx
+    command: bash -c "npm install express mysql && node index.js" # dúvida  - existe uma forma melhor de rodar estes comandos?
     depends_on:
       - db
 
@@ -47,6 +47,3 @@ services:
 networks:
   node-network:
     driver: bridge
-
-
-

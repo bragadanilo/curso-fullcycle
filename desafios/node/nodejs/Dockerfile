@@ -2,8 +2,6 @@ FROM node:15
 
 WORKDIR /app
 
-COPY . /app
-
 RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
 RUN apt-get update && apt-get install -y wget
 
