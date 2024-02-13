@@ -21,7 +21,7 @@ services:
     container_name: app
     volumes:
      - ./nodejs:/app
-     - /home/danilo/workspace/curso-fullcycle/desafios/node/nodejs/node_modules
+     - ./nodejs/node_modules
     entrypoint: "dockerize -wait tcp://db:3306 -timeout 60s docker-entrypoint.sh"
     command: bash -c "node index.js" # dúvida  - existe uma forma melhor de rodar estes comandos?
     depends_on:
