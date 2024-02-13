@@ -5,6 +5,8 @@ WORKDIR /app
 RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
 RUN apt-get update && apt-get install -y wget
 
+COPY package.json package.json
+
 RUN npm install
 
 ENV DOCKERIZE_VERSION v0.6.1
