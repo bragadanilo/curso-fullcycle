@@ -27,7 +27,7 @@ function createResultPage(res) {
   connection.query("SELECT * from people", function (error, results) {
     if (error) throw error;
 
-    items = "<h1>dbraga fullcycle!</h1><ul>";
+    items = "<h1>Full Cycle Rocks!</h1><ul>";
     results.forEach((item) => {
       items += `<li>${item.id} - ${item.name}</li>`;
     });
