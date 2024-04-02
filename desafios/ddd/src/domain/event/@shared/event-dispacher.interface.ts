@@ -1,12 +1,12 @@
 import EventHandlerInterface from "./event-handler.interface";
 import EventInterface from "./event.interface";
 
-export default interface EventDispacherInterface{
-    notify(event: EventInterface): void;
-    
-    register(eventName: string, eventHandler: EventHandlerInterface): void;
+export default interface EventDispacherInterface {
+  notify(event: EventInterface): void;
 
-    unregister(eventName: string, eventHandler: EventHandlerInterface): void;
+  register(eventName: string, eventHandler: EventHandlerInterface): void;
 
-    unregisterAll(): void;
+  unregister(eventName: string, eventHandler: EventHandlerInterface): void;
+
+  unregisterAll(): void;
 }
