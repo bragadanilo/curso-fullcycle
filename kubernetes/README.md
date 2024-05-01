@@ -58,6 +58,12 @@ kubectl get deployments
 
 kubectl apply -f k8s/service.yaml
 kubectl get services
+
+kubectl apply -f k8s/pvc.yaml
+
+kubectl apply -f k8s/hpa.yaml
+kubectl get hpa
+
 kubectl port-forward service/goserver-service 8080:8080
 
 # gerar imagem docker
@@ -66,3 +72,20 @@ docker build -t danilobraga/hello-go:v5.4 .
 docker push danilobraga/hello-go:v5.4
 
 docker build -t danilobraga/hello-go:v5.7 . && docker push danilobraga/hello-go:v5.7
+
+# volumes
+
+kubectl apply -f k8s/pvc.yaml
+
+kubectl get pvc
+kubectl get storageclass
+
+# stateful sets and headless service
+
+kubectl apply -f k8s/statefulset.yaml
+
+kubectl apply -f k8s/mysql-service-h.yaml
+
+`é possível chamar o serviço pelo nome do pod, mysql-0.mysql-h`
+kubectl exec -it goserver-c8b7bd559-w2946 -- bash
+ping mysql-0.mysql-h

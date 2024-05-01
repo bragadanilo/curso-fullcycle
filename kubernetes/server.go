@@ -31,15 +31,19 @@ func Hello(w http.ResponseWriter, r *http.Request) {
 
 func Healthz(w http.ResponseWriter, r *http.Request) {
 
-	duration := time.Since(startedAt)
+	// duration := time.Since(startedAt)
 
-	if duration.Seconds() < 10 || duration.Seconds() > 30 {
-		w.WriteHeader(500)
-		w.Write([]byte(fmt.Sprintf("Duration: %v", duration.Seconds())))
-	} else {
-		w.WriteHeader(200)
-		w.Write([]byte("ok"))
-	}
+	// if duration.Seconds() < 10 || duration.Seconds() > 30 {
+	// 	w.WriteHeader(500)
+	// 	w.Write([]byte(fmt.Sprintf("Duration: %v", duration.Seconds())))
+	// } else {
+	// 	w.WriteHeader(200)
+	// 	w.Write([]byte("ok"))
+	// }
+	
+	w.WriteHeader(200)
+	w.Write([]byte("ok"))
+	
 
 }
 
